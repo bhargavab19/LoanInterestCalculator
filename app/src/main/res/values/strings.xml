@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LoanInterestCalculator</string>
+    <string-array name="frequency">
+        <item>Monthly</item>
+        <item>Quarterly</item>
+        <item>Semi-Annually</item>
+        <item>Annually</item>
+    </string-array>
+</resources>
