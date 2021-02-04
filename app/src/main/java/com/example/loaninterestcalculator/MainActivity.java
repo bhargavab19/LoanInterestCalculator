@@ -69,13 +69,21 @@ public class MainActivity extends AppCompatActivity{
                 double r= Double.parseDouble(eTextInterestRate.getText().toString())/(freq*100);
                 int per=Integer.parseInt(eTextPeriod.getText().toString())*freq;
 
-                Double emiCalc=(pv*r*Math.pow(1+r,per))/(Math.pow(1+r,per)-1);
-                Double effROICalc=(emiCalc*per-pv)/pv*100;
+                Double emiCalc=calcEMI(pv,r,per);
+                Double effROICalc=calcEffROI(emiCalc,pv,per);
                 DecimalFormat formatVal=new DecimalFormat("#,###.##");
 
                 emiAmount.setText("\u20B9" + formatVal.format(emiCalc));
                 effROI.setText(formatVal.format(effROICalc)+"%");
             }
         });
+    }
+
+    public Double calcEMI(double pv,double r,int per){
+        return (pv*r*Math.pow(1+r,per))/(Math.pow(1+r,per)-1);
+    }
+
+    public Double calcEffROI(double emiCalc,double pv,int per){
+        return (emiCalc*per-pv)/pv*100;
     }
 }
