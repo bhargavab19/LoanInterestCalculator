@@ -16,11 +16,12 @@ public class AmortizationTable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amortization_table);
 
-        Intent intent=getIntent();
-        ArrayList<String> key=intent.getStringArrayListExtra(MainActivity.key);
+        ListView listview=findViewById(R.id.amrtztable);
 
-        ListView mylistview=findViewById(R.id.mylistview);
-        ArrayAdapter<String> amrtzArrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,key);
-        mylistview.setAdapter(amrtzArrayAdapter);
+        Intent intent=getIntent();
+        ArrayList<MonthlyRecord> amrtzTable=intent.getParcelableArrayListExtra(MainActivity.key);
+
+        AmortizationTableAdapter adapter=new AmortizationTableAdapter(this,R.layout.amortization_view_layout,amrtzTable);
+        listview.setAdapter(adapter);
     }
 }

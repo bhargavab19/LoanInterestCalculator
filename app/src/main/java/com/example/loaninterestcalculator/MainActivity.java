@@ -6,17 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity{
     static int freq;
     double pv,r;
     int per;
-    public static final String key="com.example.loaninterestcalculator.AmrtzTable";
+    public static final String key="com.example.loaninterestcalculator.AmortizationTable";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +95,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                intent.putStringArrayListExtra(key,displayAmortizationTable(pv,r,per));
+                intent.putParcelableArrayListExtra(key,displayAmortizationTable(pv,r,per));
                 startActivity(intent);
             }
         });
@@ -112,25 +109,26 @@ public class MainActivity extends AppCompatActivity{
         return (emiCalc*per-pv)/pv*100;
     }
 
-    public ArrayList<String> displayAmortizationTable(double pv,double r,int per){
+    public ArrayList<MonthlyRecord> displayAmortizationTable(double pv, double r, int per){
 
+        ArrayList<MonthlyRecord> amrtzTable=new ArrayList<>();
         double balance= pv;
         double payment=calcEMI(pv,r,per);
         double irPaid, principalPaid, newBalance;
         DecimalFormat formatVal=new DecimalFormat("#,###.##");
-
-        ArrayList<String> amrtzTable=new ArrayList<>();
-        amrtzTable.add("Month   Old Balance   Payment   Interest   Principal   New Balance");
 
         for(int month=1; month<=per;month++){
             irPaid=balance*r;
             principalPaid=payment-irPaid;
             newBalance=balance-principalPaid;
 
-            amrtzTable.add(month+"   "+formatVal.format(balance)+"   "+formatVal.format(payment)+"   "+formatVal.format(irPaid)+"   "+formatVal.format(principalPaid)+"   "+formatVal.format(newBalance));
+            MonthlyRecord monthlyRecord=new MonthlyRecord(month,formatVal.format(balance),formatVal.format(principalPaid),formatVal.format(irPaid),formatVal.format(payment));
+            amrtzTable.add(monthlyRecord);
 
             balance=newBalance;
         }
+
+
 
         return amrtzTable;
     }

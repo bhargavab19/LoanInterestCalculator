@@ -6,4 +6,10 @@
         <item>Semi-Annually</item>
         <item>Annually</item>
     </string-array>
+    <string name="col1">Month</string>
+    <string name="col2">Balance</string>
+    <string name="col3">Principal</string>
+    <string name="col4">Interest</string>
+    <string name="col5">Payment</string>
+    <string name="colSize">100sp</string>
 </resources>
