@@ -9,58 +9,77 @@
     android:layout_height="wrap_content">
 
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        android:id="@+id/month"
-        android:text="Month"
-        android:textSize="18sp">
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
 
-    </TextView>
-    <TextView
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:gravity="start"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Month"
+                android:textColor="#100E0E"
+                android:textSize="18sp">
 
-        android:id="@+id/balance"
-        android:text="Balance"
-        android:textSize="18sp">
+            </TextView>
 
-    </TextView>
-    <TextView
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:gravity="start"
+            <TextView
+                android:id="@+id/balance"
+                android:layout_width="130sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Balance"
+                android:textColor="#100E0E"
+                android:textSize="18sp">
 
-        android:id="@+id/principal"
-        android:text="Principal"
-        android:textSize="18sp">
+            </TextView>
 
-    </TextView>
+            <TextView
+                android:id="@+id/principal"
+                android:layout_width="130sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Principal"
+                android:textColor="#100E0E"
+                android:textSize="18sp">
 
-    <TextView
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:gravity="start"
+            </TextView>
 
-        android:id="@+id/interest"
-        android:text="Interest"
-        android:textSize="18sp">
+            <TextView
+                android:id="@+id/interest"
+                android:layout_width="130sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Interest"
+                android:textColor="#100E0E"
+                android:textSize="18sp">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:gravity="start"
+            <TextView
+                android:id="@+id/payment"
+                android:layout_width="130sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Payment"
+                android:textColor="#100E0E"
+                android:textSize="18sp">
 
-        android:id="@+id/payment"
-        android:text="Payment"
-        android:textSize="18sp">
+            </TextView>
+        </TableRow>
 
-    </TextView>
+    </TableLayout>
+
 </LinearLayout>
 </HorizontalScrollView>

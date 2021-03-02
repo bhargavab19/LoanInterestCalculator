@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -32,12 +33,16 @@ public class MainActivity extends AppCompatActivity{
 
         Button btnCalc=(Button) findViewById(R.id.button_calculate);
         Button button=findViewById(R.id.button);
+        Button btnClear=findViewById((R.id.btnClear));
 
         EditText eTextLoanAmount=(EditText) findViewById(R.id.editText_loanAmount);
         EditText eTextInterestRate=(EditText) findViewById(R.id.editText_interestRate);
         EditText eTextPeriod=(EditText) findViewById(R.id.editText_period);
         TextView emiAmount=(TextView) findViewById(R.id.textView_emiAmount);
         TextView effROI=(TextView) findViewById(R.id.textView_effROI);
+        TextView totalAmount=(TextView) findViewById(R.id.textView_totalAmount);
+        TextView totalInterest=(TextView) findViewById(R.id.textView_totalInterest);
+        TableLayout resultTable=(TableLayout) findViewById(R.id.resultTable);
 
         Spinner pymntFrequency=(Spinner) findViewById(R.id.spinner_repaymentType);
         pymntFrequency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -81,10 +86,17 @@ public class MainActivity extends AppCompatActivity{
                 per=Integer.parseInt(eTextPeriod.getText().toString())*freq;
 
                 Double emiCalc=calcEMI(pv,r,per);
+                Double totAmountCalc=emiCalc*per;
+                Double totIntCalc=totAmountCalc-pv;
                 Double effROICalc=calcEffROI(emiCalc,pv,per);
                 DecimalFormat formatVal=new DecimalFormat("#,###.##");
 
-                emiAmount.setText("\u20B9" + formatVal.format(emiCalc));
+                resultTable.setVisibility(View.VISIBLE);
+                button.setVisibility(View.VISIBLE);
+
+                emiAmount.setText("\u20B9 " + formatVal.format(emiCalc));
+                totalAmount.setText("\u20B9 " + formatVal.format(totAmountCalc));
+                totalInterest.setText("\u20B9 " + formatVal.format(totIntCalc));
                 effROI.setText(formatVal.format(effROICalc)+"%");
 
 
@@ -97,6 +109,18 @@ public class MainActivity extends AppCompatActivity{
 
                 intent.putParcelableArrayListExtra(key,displayAmortizationTable(pv,r,per));
                 startActivity(intent);
+            }
+        });
+
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eTextLoanAmount.setText("");
+                eTextInterestRate.setText("");
+                eTextPeriod.setText("");
+                pymntFrequency.setSelection(0);
+                eTextLoanAmount.requestFocus();
+
             }
         });
     }
@@ -132,4 +156,7 @@ public class MainActivity extends AppCompatActivity{
 
         return amrtzTable;
     }
+
+
+
 }

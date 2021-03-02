@@ -2,51 +2,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-        <EditText
-            android:id="@+id/editText_period"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/textView_period"
-            app:layout_constraintTop_toBottomOf="@+id/editText_interestRate" />
-
-        <TextView
-            android:id="@+id/textView_period"
-            android:layout_width="62dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="52dp"
-            android:text="Period"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_InterestRate" />
-
-        <TextView
-            android:id="@+id/textView_InterestRate"
-            android:layout_width="121dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="44dp"
-            android:text="Interest Rate"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_loanAmount" />
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView"
@@ -64,135 +28,268 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_loanAmount"
-            android:layout_width="123dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="48dp"
-            android:text="Loan Amount"
-            android:textSize="18sp"
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <EditText
-            android:id="@+id/editText_loanAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            app:layout_constraintStart_toEndOf="@+id/textView_loanAmount"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editText_interestRate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            app:layout_constraintStart_toEndOf="@+id/textView_InterestRate"
-            app:layout_constraintTop_toBottomOf="@+id/editText_loanAmount" />
+                <TextView
+                    android:id="@+id/textView_loanAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Loan Amount"
+                    android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinner_repaymentType"
-            android:layout_width="156dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="38dp"
-            android:dropDownWidth="match_parent"
-            android:entries="@array/frequency"
-            android:spinnerMode="dropdown"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/editText_period" />
+                <EditText
+                    android:id="@+id/editText_loanAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="e.g. 500000"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+            </TableRow>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="140dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="52dp"
-            android:text="Repayment Type"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_period" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="49dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="148dp"
-            android:text="EMI"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                <TextView
+                    android:id="@+id/textView_InterestRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Interest Rate"
+                    android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView_emiAmount"
-            android:layout_width="181dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="40dp"
-            android:textSize="24sp"
-            android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/button_calculate" />
+                <EditText
+                    android:id="@+id/editText_interestRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="e.g. 10"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+            </TableRow>
 
-        <Button
-            android:id="@+id/button_calculate"
-            android:layout_width="182dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="92dp"
-            android:layout_marginLeft="92dp"
-            android:layout_marginTop="41dp"
-            android:text="CALCULATE"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_repaymentType" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="29dp"
-            android:text="Effective ROI"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_emiAmount" />
+                <TextView
+                    android:id="@+id/textView_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Period"
+                    android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView_effROI"
-            android:layout_width="154dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="29dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView_emiAmount" />
+                <EditText
+                    android:id="@+id/editText_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="in years"
+                    android:importantForAutofill="no"
+                    android:inputType="number" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Repayment Type"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_repaymentType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:dropDownWidth="match_parent"
+                    android:entries="@array/frequency"
+                    android:spinnerMode="dropdown" />
+            </TableRow>
+        </TableLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_calculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="30dp"
+                android:text="CALCULATE"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="661dp" />
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:text="Clear"
+                android:textSize="18sp"
+                app:backgroundTint="#00ACC1" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/resultTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="EMI:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView_emiAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Total Amount:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView_totalAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Total Interest:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView_totalInterest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Effective ROI:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView_effROI"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+        </TableLayout>
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:text="View Amortization Table"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_effROI" />
+            android:visibility="invisible"
+            tools:layout_editor_absoluteY="818dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>

@@ -23,45 +23,61 @@
                     android:id="@+id/col1"
                     android:layout_width="100sp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/border_color"
+                    android:gravity="center"
                     android:text="@string/col1"
+                    android:textColor="#100E0E"
                     android:textSize="24sp"
-                    android:layout_gravity="center_horizontal">
-                </TextView>
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/col2"
                     android:layout_width="130sp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/border_color"
+                    android:gravity="center"
                     android:text="@string/col2"
+                    android:textColor="#100E0E"
                     android:textSize="24sp"
-                    android:layout_gravity="center_horizontal">
-                </TextView>
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/col3"
                     android:layout_width="130sp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/border_color"
+                    android:gravity="center"
                     android:text="@string/col3"
+                    android:textColor="#100E0E"
                     android:textSize="24sp"
-                    android:layout_gravity="center_horizontal">
-                </TextView>
-                <TextView
-                android:id="@+id/col4"
-                android:layout_width="130sp"
-                android:layout_height="wrap_content"
-                android:text="@string/col4"
-                android:textSize="24sp"
-                    android:layout_gravity="center_horizontal">
-                </TextView>
+                    android:textStyle="bold"></TextView>
 
                 <TextView
-                android:id="@+id/col5"
-                android:layout_width="130sp"
-                android:layout_height="wrap_content"
-                android:text="@string/col5"
-                android:textSize="24sp"
-                    android:layout_gravity="center_horizontal">
-            </TextView>
+                    android:id="@+id/col4"
+                    android:layout_width="130sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/border_color"
+                    android:gravity="center"
+                    android:text="@string/col4"
+                    android:textColor="#100E0E"
+                    android:textSize="24sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/col5"
+                    android:layout_width="130sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/border_color"
+                    android:gravity="center"
+                    android:text="@string/col5"
+                    android:textColor="#100E0E"
+                    android:textSize="24sp"
+                    android:textStyle="bold"></TextView>
 
             </LinearLayout>
                 <ListView
